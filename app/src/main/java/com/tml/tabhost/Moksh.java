@@ -11,6 +11,7 @@ import android.view.ViewGroup;
  */
 public class Moksh extends android.support.v4.app.Fragment {
 
+    String [] data={"Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"};
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
