@@ -9,6 +9,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.HorizontalScrollView;
 import android.widget.TabHost;
@@ -69,7 +70,6 @@ public class MainActivity extends ActionBarActivity implements TabHost.OnTabChan
 
         onRestart();
     }
-    String[] str={"Tatva","Moksha","Lakshya"};
 
     private void initializeTabHost(Bundle args) {
         tabHost=(TabHost)findViewById(android.R.id.tabhost);
@@ -84,10 +84,14 @@ public class MainActivity extends ActionBarActivity implements TabHost.OnTabChan
         tabSpec.setContent(new FakeContent(this));
         tabHost.addTab(tabSpec);
 
+        tabHost.setOnTabChangedListener(this);
+
         tabSpec=tabHost.newTabSpec("Moksh");
         tabSpec.setIndicator("Moksh");
         tabSpec.setContent(new FakeContent(this));
         tabHost.addTab(tabSpec);
+
+        tabHost.setOnTabChangedListener(this);
 
         tabSpec=tabHost.newTabSpec("Lakshya");
         tabSpec.setIndicator("Lakshya");
@@ -111,16 +115,20 @@ public class MainActivity extends ActionBarActivity implements TabHost.OnTabChan
 
     @Override
     public void onPageScrollStateChanged(int state) {
+        Log.d("T","State:"+state);
 
     }
 
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
+        Log.d("T","State:"+position+positionOffset+positionOffsetPixels);
     }
 
     @Override
     public void onPageSelected(int position) {
+        Log.d("T","State Selected:"+position);
+        this.tabHost.setCurrentTab(position);
 
     }
 }

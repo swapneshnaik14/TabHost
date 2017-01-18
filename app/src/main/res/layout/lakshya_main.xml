@@ -6,13 +6,7 @@
     android:orientation="vertical"
     tools:context=".Lakshya"
     >
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Lakshya"
-        android:textSize="20dp"
-        android:layout_centerInParent="true"/>
+
 
     <ListView
         android:layout_width="wrap_content"
